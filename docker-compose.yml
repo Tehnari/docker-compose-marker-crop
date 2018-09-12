@@ -18,4 +18,5 @@ services:
     # And if you run 
     #   python3 -c "import cv2; print(cv2.__version__)"
     # You will see verion of opencv installed.
+    # All data you should check in folder: /app
     #
