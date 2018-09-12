@@ -1,7 +1,7 @@
 version: "2"
 services:
   opencv:
-    image: "tehnari/docker-opencv-marker-crop:0.0.2"
+    image: "tehnari/docker-opencv-marker-crop:0.0.3"
     build: ./
     privileged: true
     # command: python3 -c "import cv2; print('You have now OpenCV {} installed!'.format(cv2.__version__))"

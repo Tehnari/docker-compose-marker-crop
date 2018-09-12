@@ -90,5 +90,5 @@ COPY ./app/marker-crop /app
 RUN mkdir -p /app/marker-crop-data
 
 # WORKDIR /usr/local/share/OpenCV/samples/python
-# CMD ["/bin/bash"]
-CMD ["python3 --version"]
+CMD ["/bin/bash"]
+#CMD ["python3 --version"]
