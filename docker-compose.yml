@@ -1,0 +1,15 @@
+version: "2"
+services:
+  opencv:
+    image: "tehnari/docker-opencv-marker-crop:0.0.1"
+    build: ./
+    privileged: true
+    # command: python3 -c "import cv2; print('You have now OpenCV {} installed!'.format(cv2.__version__))"
+    # command: python3 -c "import cv3; print('You have now OpenCV {} installed!'.format(cv3.__version__))"
+    volumes:
+      - ./app:/app
+    # devices:
+    #   - "/dev/video0:/dev/video0"
+    #
+    # See docker-compose docs to run exec terminal interactive, and then test image if it's work in your environment
+    #
