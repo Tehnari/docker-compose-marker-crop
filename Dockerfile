@@ -8,10 +8,11 @@ LABEL maintainer "jakub.skalecki@gmail.com"
 ENV OPENCV_VERSION 3.4.2
 
 # Install all dependencies for OpenCV
-RUN apt-get -y update && \
+RUN apt-get -y update && apt-get upgrade && \
+    apt-get install -y libjpeg8-dev libtiff5-dev libjasper-dev libpng12-dev && \
     apt-get -y install \
-        python3 \
-        python3-dev \
+        python2.7 \
+        python2.7-dev \
         git \
         wget \
         unzip \
@@ -30,12 +31,15 @@ RUN apt-get -y update && \
         libtiff-dev \
         libjasper-dev \
         libv4l-dev \
+        libxvidcore-dev \
+        libx264-dev \
+        libgtk-3-dev \
     && \
 # install python dependencies
     wget https://bootstrap.pypa.io/get-pip.py && \
-    python3 get-pip.py && \
+    python2 get-pip.py && \
     rm get-pip.py && \
-    pip3 install numpy \
+    python2 -m pip install numpy \
     && \
 # Install OpenCV
     wget https://github.com/opencv/opencv/archive/$OPENCV_VERSION.zip -O opencv3.zip && \
@@ -55,8 +59,8 @@ RUN apt-get -y update && \
       -D OPENCV_EXTRA_MODULES_PATH=/opencv_contrib/modules \
       -D BUILD_EXAMPLES=OFF \
       -D PYTHON_DEFAULT_EXECUTABLE=/usr/bin/python3 \
-      -D BUILD_opencv_python3=ON \
-      -D BUILD_opencv_python2=OFF \
+      -D BUILD_opencv_python3=OFF \
+      -D BUILD_opencv_python2=On \
       -D WITH_IPP=OFF \
       -D WITH_FFMPEG=ON \
       -D WITH_V4L=ON .. \
@@ -69,7 +73,7 @@ RUN apt-get -y update && \
     && \
 # Clean
     apt-get -y remove \
-        python3-dev \
+        python2.7-dev \
         libatlas-base-dev \
         gfortran \
         libjasper-dev \
