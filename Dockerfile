@@ -58,7 +58,7 @@ RUN apt-get -y update && apt-get upgrade && \
       -D CMAKE_INSTALL_PREFIX=/usr/local \
       -D OPENCV_EXTRA_MODULES_PATH=/opencv_contrib/modules \
       -D BUILD_EXAMPLES=OFF \
-      -D PYTHON_DEFAULT_EXECUTABLE=/usr/bin/python3 \
+      -D PYTHON_DEFAULT_EXECUTABLE=/usr/bin/python2 \
       -D BUILD_opencv_python3=OFF \
       -D BUILD_opencv_python2=On \
       -D WITH_IPP=OFF \
